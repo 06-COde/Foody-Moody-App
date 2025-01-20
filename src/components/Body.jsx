@@ -1,8 +1,9 @@
 import ResturantCard from "./ResturantCard";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 // import Shimmer from "./Shimmer.jsx";
 import { Link } from "react-router";
 import useOnlineStatus from "../utils/useStatus";
+import UserContext from "../utils/UserContext";
 
 
 
@@ -13,7 +14,9 @@ const Body = () => {
 
  const [searchBar, setsearchBar ] = useState("");
 
+ const {loggedInUser, setUserInfo} = useContext(UserContext); 
 
+   
   
    useEffect(()=>{
     fetchapi();
@@ -46,32 +49,41 @@ setlistofResturant(json?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithSty
     return (
       <div className="body">
         {/* Filter Button */}
-        <div  className="filter-btn">
-            <div className="search">
+        <div  className="filter-btn bg-pink-800 flex justify-between items-center">
+            <div className="search m-2 p-2	">
                 <input
                  type="text"
-                  className="search-box" 
+                  className=" border-2 border-rose-500 rounded-md text-center text-zinc-950" 
                   value= {searchBar} onChange={(e)=>{setsearchBar(e.target.value)}}/> 
 
-                <button onClick={()=>{
+                <button className="p-1 m-1 bg-blue-700 rounded-md text-sky-100" onClick={()=>{
                  const filterDetails = listofResturant.filter((food)=>{
                    return food.info.name?.toLowerCase().includes(searchBar.toLowerCase())
                  })
                  setfilterDetails(filterDetails);
-                }}>Search</button>
+                }}>Search
+                </button>
             </div>
 
-             <button className="BtnO" onClick={() => {
-                 const filteredlist = listofResturant.filter((res) => res.info.avgRating > 4 );
+             <button className="p-1 m-1 bg-blue-700 rounded-md text-sky-100" onClick={() => {
+                 const filteredlist = listofResturant.filter((res) => res.info.avgRating > 4.5 );
                  setfilterDetails(filteredlist);
                  console.log(listofResturant);
                 }} 
              >   Top Rated Resturant
              </button>
+             <div>
+                   <label className="p-1 m-1 bg-blue-700 rounded-md text-sky-100">UserName</label>
+                   <input
+                            className="border border-black"
+                            value={loggedInUser}
+                            onChange={(e) => setUserInfo(e.target.value)} // Corrected syntax
+                   />
+             </div>
         </div>
     
     
-        <div className="res-Container">
+        <div className="res-Container flex flex-wrap items-center justify-around">
           {filterDetails.map((Details) => (
             <Link
             key = { Details.info.id}
