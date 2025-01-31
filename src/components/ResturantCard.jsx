@@ -10,6 +10,7 @@ console.log(loggedInUser);
 
 
     const {resData} = props;
+    // console.log(resData);
     const{name, cuisines , avgRating, sla, cloudinaryImageId, costForTwo, aggregatedDiscountInfoV3} = resData?.info;
      return(
          <div className="m-4 p-4 w-[220px] border border-orange-600 rounded-xl bg-red-100 hover:bg-red-200 ">

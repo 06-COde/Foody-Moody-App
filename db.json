@@ -1,0 +1,17 @@
+{
+    "restaurants": [
+      {
+        "id": 1,
+        "name": "Shashi's Diner",
+        "cuisine": "Indian",
+        "rating": 4.5
+      },
+      {
+        "id": 2,
+        "name": "Tasty Bites",
+        "cuisine": "Mexican",
+        "rating": 4.2
+      }
+    ]
+  }
+  

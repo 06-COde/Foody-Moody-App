@@ -1,0 +1,103 @@
+{
+    "info": {
+        "id": "440151",
+        "name": "Home Plate by EatFit",
+        "cloudinaryImageId": "1d578bb732e03c6f591790eb7d2d88e2",
+        "locality": "VASANTHA NAGAR",
+        "areaName": "Central Bangalore",
+        "costForTwo": "₹250 for two",
+        "cuisines": [
+            "North Indian",
+            "Home Food",
+            "Healthy Food",
+            "Indian",
+            "Punjabi",
+            "South Indian",
+            "Rajasthani",
+            "Maharashtrian",
+            "Snacks",
+            "Desserts"
+        ],
+        "avgRating": 4.3,
+        "parentId": "301197",
+        "avgRatingString": "4.3",
+        "totalRatingsString": "676",
+        "sla": {
+            "deliveryTime": 31,
+            "lastMileTravel": 3,
+            "serviceability": "SERVICEABLE",
+            "slaString": "30-35 mins",
+            "lastMileTravelString": "3.0 km",
+            "iconType": "ICON_TYPE_EMPTY"
+        },
+        "availability": {
+            "nextCloseTime": "2025-01-30 01:00:00",
+            "opened": true
+        },
+        "badges": {
+            "textExtendedBadges": [
+                {
+                    "iconId": "guiltfree/GF_Logo_android_3x",
+                    "shortDescription": "options available",
+                    "fontColor": "#7E808C"
+                }
+            ]
+        },
+        "isOpen": true,
+        "type": "F",
+        "badgesV2": {
+            "entityBadges": {
+                "imageBased": {},
+                "textBased": {},
+                "textExtendedBadges": {
+                    "badgeObject": [
+                        {
+                            "attributes": {
+                                "description": "",
+                                "fontColor": "#7E808C",
+                                "iconId": "guiltfree/GF_Logo_android_3x",
+                                "shortDescription": "options available"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        "aggregatedDiscountInfoV3": {
+            "header": "ITEMS",
+            "subHeader": "AT ₹99"
+        },
+        "orderabilityCommunication": {
+            "title": {},
+            "subTitle": {},
+            "message": {},
+            "customIcon": {}
+        },
+        "differentiatedUi": {
+            "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+            "differentiatedUiMediaDetails": {
+                "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                "lottie": {},
+                "video": {}
+            }
+        },
+        "reviewsSummary": {},
+        "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+        "restaurantOfferPresentationInfo": {},
+        "externalRatings": {
+            "aggregatedRating": {
+                "rating": "--"
+            }
+        },
+        "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+    },
+    "analytics": {
+        "context": "seo-data-2865eef6-62ee-49aa-bc94-fd1e91de5f09"
+    },
+    "cta": {
+        "link": "https://www.swiggy.com/city/bangalore/home-plate-by-eatfit-vasantha-nagar-central-bangalore-rest440151",
+        "text": "RESTAURANT_MENU",
+        "type": "WEBLINK"
+    },
+    "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
+}
