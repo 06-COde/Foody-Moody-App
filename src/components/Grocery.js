@@ -34,13 +34,15 @@ const Grocery = ()=>{
                 value={barSearch}
                 onChange={(e) => setbarSearch(e.target.value)}
                   />
-                  <button className="p-1 m-1 bg-blue-700 rounded-md text-sky-100" 
-                  onClick={()=>{
-                      const searchfilter = groceryItem.filter((Groceries)=>{
-                         Groceries?.displayName?.toLowerCase().includes(barSearch.toLowerCase());
+                  <button
+                          className="p-1 m-1 bg-blue-700 rounded-md text-sky-100"
+                           onClick={() => {
+                           const searchfilter = groceryItem.filter((Groceries) =>
+                         Groceries?.displayName?.toLowerCase().includes(barSearch.toLowerCase()));
                          setitemGrocery(searchfilter);
-                      })
-                  }}>Click!</button>
+                          }}
+                          >Click!
+                  </button>
                </div>  
             </div>
             <div>
