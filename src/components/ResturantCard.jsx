@@ -1,46 +1,50 @@
 import { useContext } from "react";
-import {FOOD_LOGO} from "../utils/constant.js";
+import { FOOD_LOGO } from "../utils/constant.js";
 import UserContext from "../utils/UserContext.js";
 
+const RestaurantCard = (props) => {
+  const { loggedInUser } = useContext(UserContext);
+  const { resData } = props;
 
-const ResturantCard = (props) =>{
+  const {
+    name,
+    cuisines,
+    avgRating,
+    sla,
+    cloudinaryImageId,
+    costForTwo,
+    aggregatedDiscountInfoV3,
+  } = resData?.info;
 
-const {loggedInUser} = useContext(UserContext);
-console.log(loggedInUser);
+  return (
+    <div
+      className="m-4 p-4 w-60 border border-orange-500 rounded-xl bg-gradient-to-tr from-orange-100 to-red-200 shadow-md hover:shadow-xl transition-transform transform hover:-translate-y-2 duration-300 animate-fadeIn"
+    >
+      <div className="flex flex-col items-center">
+        <img
+          className="h-32 w-full rounded-lg object-cover mb-3 border border-orange-300"
+          alt="res-logo"
+          src={FOOD_LOGO + cloudinaryImageId}
+        />
 
+        <h3 className="font-bold text-lg text-orange-800 text-center">{name}</h3>
 
-    const {resData} = props;
-    // console.log(resData);
-    const{name, cuisines , avgRating, sla, cloudinaryImageId, costForTwo, aggregatedDiscountInfoV3} = resData?.info;
-     return(
-         <div className="m-4 p-4 w-[220px] border border-orange-600 rounded-xl bg-red-100 hover:bg-red-200 ">
-             <div className="flex items-center justify-center flex-wrap overflow-hidden ">
-             <img  className="h-30 w-40 rounded-lg bg-center " alt="res-logo" src={ FOOD_LOGO + cloudinaryImageId} />
-            <h3  className="font-bold  py-3">{name}</h3>
-            <h4 className="bg-transparent text-black font-bold p-2 m-2">{aggregatedDiscountInfoV3?.header} {aggregatedDiscountInfoV3?.subHeader}</h4>
-            <div className="text-center items-center overflow-auto scrollbar-hide ">
-                <h4>{cuisines?.join(",")}</h4>
-                <h4>{avgRating} stars</h4>
-                <h4>{sla?.slaString}</h4>
-                <h4>{costForTwo}</h4>
-                <h4>{loggedInUser}</h4>
-            </div>
-             </div>
-         </div>
-     )
- }
+        {aggregatedDiscountInfoV3?.header && (
+          <h4 className="text-xs bg-red-500 text-white rounded-full px-2 py-1 mt-1 animate-pulse">
+            {aggregatedDiscountInfoV3?.header} {aggregatedDiscountInfoV3?.subHeader}
+          </h4>
+        )}
 
-//  export const withOfferLabel = (ResturantCard)=>{
-//     return(props)=>{
-//         const offerLabel = props?.info?.aggregatedDiscountInfoV3?.header;
-//         console.log(offerLabel);
-//           return(
-//             <div>
-//                 <label>{offerLabel} </label>
-//                 <ResturantCard {...props}/>
-//             </div>
-//           )
-//     }
-//  }
+        <div className="text-sm text-slate-700 text-center mt-2 space-y-1">
+          <p>{cuisines?.join(", ")}</p>
+          <p className="font-semibold text-yellow-700">{avgRating} ★</p>
+          <p>{sla?.slaString}</p>
+          <p>{costForTwo}</p>
+          <p className="text-slate-800 font-semibold italic">By: {loggedInUser}</p>
+        </div>
+      </div>
+    </div>
+  );
+};
 
- export default ResturantCard;  
+export default RestaurantCard;
