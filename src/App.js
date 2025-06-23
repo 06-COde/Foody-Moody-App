@@ -11,7 +11,7 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
 import UserContext from "./utils/UserContext.js";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore.js";
-import Cart from "./components/cart.js";
+import Cart from "./components/Cart.js";
 
 
 const AppLayout = () => {
