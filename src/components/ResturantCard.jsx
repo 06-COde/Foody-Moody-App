@@ -2,9 +2,8 @@ import { useContext } from "react";
 import { FOOD_LOGO } from "../utils/constant.js";
 import UserContext from "../utils/UserContext.js";
 
-const RestaurantCard = (props) => {
+const RestaurantCard = ({ resData }) => {
   const { loggedInUser } = useContext(UserContext);
-  const { resData } = props;
 
   const {
     name,
@@ -17,31 +16,34 @@ const RestaurantCard = (props) => {
   } = resData?.info;
 
   return (
-    <div
-      className="m-4 p-4 w-60 border border-orange-500 rounded-xl bg-gradient-to-tr from-orange-100 to-red-200 shadow-md hover:shadow-xl transition-transform transform hover:-translate-y-2 duration-300 animate-fadeIn"
-    >
-      <div className="flex flex-col items-center">
+    <div className="w-full sm:w-64 md:w-72 lg:w-80 bg-gradient-to-tr from-orange-100 to-red-100 border border-orange-400 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+      <div className="flex flex-col h-full p-4">
         <img
-          className="h-32 w-full rounded-lg object-cover mb-3 border border-orange-300"
-          alt="res-logo"
+          className="h-40 w-full object-cover rounded-lg border border-orange-300 mb-3"
           src={FOOD_LOGO + cloudinaryImageId}
+          alt={name}
         />
 
-        <h3 className="font-bold text-lg text-orange-800 text-center">{name}</h3>
+        <h3 className="text-xl font-bold text-orange-800 text-center truncate">
+          {name}
+        </h3>
 
         {aggregatedDiscountInfoV3?.header && (
-          <h4 className="text-xs bg-red-500 text-white rounded-full px-2 py-1 mt-1 animate-pulse">
-            {aggregatedDiscountInfoV3?.header} {aggregatedDiscountInfoV3?.subHeader}
-          </h4>
+          <div className="bg-red-500 text-white text-xs px-2 py-1 rounded-full text-center mt-2 w-fit mx-auto animate-pulse">
+            {aggregatedDiscountInfoV3.header} {aggregatedDiscountInfoV3.subHeader}
+          </div>
         )}
 
-        <div className="text-sm text-slate-700 text-center mt-2 space-y-1">
-          <p>{cuisines?.join(", ")}</p>
+        <div className="text-sm text-gray-700 mt-3 text-center space-y-1">
+          <p className="line-clamp-2">{cuisines?.join(", ")}</p>
           <p className="font-semibold text-yellow-700">{avgRating} ★</p>
           <p>{sla?.slaString}</p>
           <p>{costForTwo}</p>
-          <p className="text-slate-800 font-semibold italic">By: {loggedInUser}</p>
         </div>
+
+        <p className="text-xs mt-auto pt-4 text-gray-600 italic text-center">
+          Curated by: <span className="font-semibold">{loggedInUser}</span>
+        </p>
       </div>
     </div>
   );
