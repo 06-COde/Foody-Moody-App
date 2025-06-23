@@ -1,6 +1,10 @@
 {
   "name": "food-app",
   "version": "1.0.0",
+  "description": "Foody Moody",
+  "author": "Shashi Raj",
+  "license": "ISC",
+  "keywords": ["FoodApp"],
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html",
@@ -9,10 +13,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "clear"
+    "url": "https://github.com/your-username/your-repo-name"
   },
-  "author": "By Shashi Raj",
-  "license": "ISC",
   "dependencies": {
     "@reduxjs/toolkit": "^2.5.0",
     "react": "^19.1.0",
@@ -41,9 +43,9 @@
     "text-encoding": "^0.7.0",
     "whatwg-fetch": "^3.6.20"
   },
-  "main": "index.js",
-  "description": "Foody Moody",
-  "keywords": [
-    "FoodApp"
+  "browserslist": [
+    "defaults",
+    "not IE 11",
+    "last 2 versions"
   ]
 }
