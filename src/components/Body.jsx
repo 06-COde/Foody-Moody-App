@@ -20,16 +20,12 @@ const Body = () => {
 
   const fetchapi = async () => {
     try {
-      const proxyUrl = "https://corsproxy.io/?";
-      const targetUrl =
-        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
-
-      const data = await fetch(proxyUrl + encodeURIComponent(targetUrl));
+      const data = await fetch(
+        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      );
       const json = await data.json();
-
       const restaurants =
         json?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
-
       setlistofResturant(restaurants);
       setfilterDetails(restaurants);
     } catch (err) {
